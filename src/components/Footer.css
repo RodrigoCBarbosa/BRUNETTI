@@ -1,0 +1,111 @@
+/* Rodapé — fundo marrom, textos brancos, títulos com traço curto */
+.footer {
+  padding-block: 3.5rem 2.5rem;
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  font-size: var(--fs-small);
+}
+
+.footer .container {
+  row-gap: 2.5rem;
+}
+
+.footer__brand,
+.footer__col,
+.footer__bottom {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .footer__col {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer__brand {
+    grid-column: 1 / span 3;
+  }
+
+  .footer__col {
+    grid-column: span 3;
+  }
+}
+
+.footer__logo {
+  width: 120px;
+}
+
+.footer__logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.footer__title {
+  margin-bottom: 1rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-small);
+  text-transform: uppercase;
+}
+
+.footer__title::after {
+  content: '';
+  display: block;
+  width: 1rem;
+  height: 1.5px;
+  margin-top: 0.4rem;
+  background-color: var(--color-white);
+}
+
+.footer__col ul {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.footer__col a,
+.footer__col li {
+  font-size: 11px;
+  letter-spacing: var(--ls-small);
+}
+
+.footer__col address {
+  margin-bottom: 0.75rem;
+  font-style: normal;
+}
+
+.footer__col p {
+  margin-bottom: 0.2rem;
+}
+
+.footer__col a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__social {
+  display: inline-block;
+  margin-top: 1rem;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.footer__social:hover {
+  opacity: 0.5;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: var(--fs-footer);
+  letter-spacing: var(--ls-small);
+}

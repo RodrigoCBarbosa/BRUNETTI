@@ -1,0 +1,64 @@
+/* Lista editorial com linhas finas (linguagem do menu do Fasano) */
+.todos__categoria {
+  grid-column: 1 / -1;
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--color-gray);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .todos__categoria {
+    grid-column: span 3;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .todos__categoria {
+    grid-column: span 4;
+    padding-right: 2.5rem;
+  }
+}
+
+.todos__numero {
+  font-size: var(--fs-footer);
+  letter-spacing: var(--ls-small);
+  color: var(--color-brown);
+}
+
+.todos__texto {
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.todos__categoria ul {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.todos__categoria li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 13px;
+  color: var(--color-brown);
+}
+
+/* Traço curto como marcador (detalhe "_divider" do Fasano) */
+.todos__categoria li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.5rem;
+  height: 1px;
+  background-color: var(--color-brown);
+}
+
+.todos__cta {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  text-align: center;
+}

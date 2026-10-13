@@ -1,0 +1,58 @@
+/*
+ * Design tokens — Clínica Brunetti
+ * Fonte: ANALISE_PADRONIZACAO.md (seção 6)
+ *
+ * REGRA ABSOLUTA: nenhum vermelho no site (nem em erros, ícones ou mapas).
+ */
+:root {
+  /* Cores — extraídas do Fasano e confirmadas na clínica física */
+  --color-brown: #695643;        /* cor-assinatura: títulos, botões, rodapé */
+  --color-beige: #F5EADA;        /* fundo padrão do body, header stuck, menu */
+  --color-beige-light: #F9F1E9;  /* seções alternadas, barra mobile */
+  --color-gold: #8F7C56;         /* destaque pontual — apenas títulos grandes/ícones */
+  --color-gray: #B8B8B8;         /* linhas e bullets — decorativo, não usar em texto */
+  --color-text: #404040;         /* corpo de texto */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-espresso: #1E140D;     /* seções escuras: ecoa o mármore preto da clínica */
+
+  /* Estados de formulário — VERMELHO PROIBIDO, inclusive em erros */
+  --color-error: var(--color-brown);
+
+  /* Tipografia */
+  --font-extended: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --fs-display: clamp(26px, 3.2vw, 40px);
+  --fs-title: 20px;
+  --fs-card-title: 14px;
+  --fs-menu: 13px;
+  --fs-button: 13px;
+  --fs-body: 14px;
+  --fs-small: 12px;
+  --fs-footer: 10px;
+  --ls-title: 0.8px;
+  --ls-small: 0.96px;
+  --ls-wide: 0.3em;
+
+  /* Layout */
+  --container-max: 1440px;
+  --gutter: 24px;
+  --gap: 1rem;
+  --section-py: 2rem;
+  --header-stuck-height: 55px;
+  --booking-bar-height: 60px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 200ms;
+}
+
+/* Breakpoint principal do Fasano */
+@media (min-width: 1025px) {
+  :root {
+    --gutter: 72px;
+    --gap: 1.5rem;
+    --section-py: 50px;
+    --booking-bar-height: 70px;
+  }
+}

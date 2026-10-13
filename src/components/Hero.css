@@ -1,0 +1,143 @@
+/* Hero imersivo — tela cheia no desktop, 450px no mobile (padrão Fasano) */
+.hero {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  background-color: var(--color-espresso);
+  color: var(--color-white);
+}
+
+@media (min-width: 1025px) {
+  .hero {
+    height: 100vh;
+    min-height: 640px;
+  }
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 1800ms var(--ease),
+    transform 9000ms linear;
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Véu quente para dar profundidade e legibilidade */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 12, 6, 0.15) 40%,
+    rgba(20, 12, 6, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.hero__tagline {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  animation: hero-fade 2200ms var(--ease) 400ms both;
+}
+
+@media (min-width: 1025px) {
+  .hero__tagline {
+    font-size: 15px;
+  }
+}
+
+.hero__footer {
+  position: absolute;
+  inset: auto 0 1.75rem;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 1025px) {
+  .hero__footer {
+    bottom: calc(var(--booking-bar-height) + 2.5rem);
+  }
+}
+
+.hero__symbol {
+  width: 22px;
+  animation: hero-fade 2200ms var(--ease) 900ms both;
+}
+
+.hero__symbol svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero__dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hero__dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.hero__dots button.is-active {
+  background-color: var(--color-white);
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide {
+    transition: opacity 600ms linear;
+    transform: none;
+  }
+
+  .hero__slide.is-active {
+    transform: none;
+  }
+
+  .hero__tagline,
+  .hero__symbol {
+    animation: none;
+  }
+}

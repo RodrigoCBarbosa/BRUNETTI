@@ -1,0 +1,238 @@
+@import './styles/variables.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-stuck-height);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--color-beige);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* espaço para a barra de agendamento fixa */
+  padding-bottom: var(--booking-bar-height);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-brown);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-brown);
+  color: var(--color-white);
+}
+
+/* Logo SVG (cor via `color`) */
+.logo {
+  display: inline-block;
+  line-height: 0;
+}
+
+.logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Grid (padrão Fasano: 6 col mobile / 12 col desktop) ---------- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--gap);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 1025px) {
+  .container {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+.section {
+  padding-block: calc(var(--section-py) * 1.6);
+}
+
+.section--light {
+  background-color: var(--color-beige-light);
+}
+
+.section--dark {
+  background-color: var(--color-espresso);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ---------- Tipografia ---------- */
+.section-title {
+  grid-column: 1 / -1;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-family: var(--font-extended);
+  font-size: var(--fs-title);
+  font-weight: 400;
+  letter-spacing: var(--ls-title);
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.section--dark .section-title {
+  color: var(--color-white);
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--fs-footer);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.card-title {
+  font-size: var(--fs-card-title);
+  font-weight: 500;
+  letter-spacing: var(--ls-title);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.text-link {
+  font-size: var(--fs-small);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration) var(--ease);
+}
+
+.text-link:hover {
+  color: var(--color-brown);
+}
+
+/* ---------- Botão (vazado, cantos retos) ---------- */
+.button {
+  display: inline-block;
+  border: 1px solid var(--color-brown);
+  background: transparent;
+  padding: 0.6rem 2rem;
+  font-size: var(--fs-button);
+  font-weight: 500;
+  letter-spacing: var(--ls-small);
+  text-transform: uppercase;
+  color: var(--color-brown);
+  cursor: pointer;
+  transition:
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.button:hover {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+
+.button--light {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.button--light:hover {
+  background-color: var(--color-white);
+  color: var(--color-brown);
+}
+
+/* ---------- Imagens editoriais ---------- */
+.thumb {
+  width: 100%;
+  aspect-ratio: 426 / 502;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Legenda como placa de obra de arte */
+figcaption {
+  margin-top: 0.75rem;
+  font-size: var(--fs-footer);
+  letter-spacing: var(--ls-small);
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+/* ---------- Aparição suave ao rolar ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 900ms var(--ease),
+    transform 900ms var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

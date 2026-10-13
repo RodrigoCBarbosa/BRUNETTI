@@ -1,0 +1,65 @@
+.visite .container {
+  row-gap: 2.5rem;
+}
+
+.visite__fachada {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.visite__fachada img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.visite__info {
+  grid-column: 1 / -1;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 1.75rem;
+}
+
+.visite__info address {
+  font-style: normal;
+}
+
+.visite__label {
+  margin-bottom: 0.4rem;
+  font-size: var(--fs-footer);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.visite__mapa {
+  grid-column: 1 / -1;
+  height: 360px;
+  border: 1px solid rgba(105, 86, 67, 0.15);
+}
+
+.visite__mapa iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* remove o vermelho do pin e harmoniza com a paleta */
+  filter: grayscale(1) sepia(0.3) contrast(0.95);
+}
+
+@media (min-width: 1025px) {
+  .visite__fachada {
+    grid-column: 1 / span 4;
+  }
+
+  .visite__info {
+    grid-column: 6 / span 3;
+  }
+
+  .visite__mapa {
+    grid-column: 1 / -1;
+    height: 420px;
+  }
+}

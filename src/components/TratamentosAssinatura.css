@@ -1,0 +1,61 @@
+.assinatura__card,
+.assinatura__wide {
+  grid-column: 1 / -1;
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding-right: 1rem;
+}
+
+.assinatura__card .thumb {
+  max-height: 490px;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .assinatura__card {
+    grid-column: span 3;
+  }
+}
+
+@media (min-width: 1025px) {
+  .assinatura__card {
+    grid-column: span 3;
+    margin-bottom: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.assinatura__link {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.assinatura__wide {
+  padding-right: 0;
+}
+
+.assinatura__wide img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+  transition: opacity 400ms var(--ease);
+}
+
+.assinatura__wide:hover img {
+  opacity: 0.92;
+}
+
+.assinatura__wide .text-link {
+  justify-self: start;
+}
+
+.assinatura__card img,
+.assinatura__wide img {
+  background-color: var(--color-beige-light);
+}

@@ -1,0 +1,109 @@
+/* Menu em tela cheia — fundo bege, itens em caixa alta, linhas finas */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow-y: auto;
+  background-color: var(--color-beige);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 300ms var(--ease),
+    visibility 300ms var(--ease);
+}
+
+.menu.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu__inner {
+  display: grid;
+  gap: 3rem;
+  min-height: 100%;
+  padding: calc(var(--header-stuck-height) + 2.5rem) var(--gutter) 2.5rem;
+}
+
+@media (min-width: 1025px) {
+  .menu__inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+}
+
+.menu__nav ul {
+  border-right: 1px solid var(--color-gray);
+}
+
+.menu__nav a {
+  display: block;
+  padding-block: 0.6rem;
+  font-size: var(--fs-menu);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+  transition: color var(--duration) var(--ease);
+}
+
+.menu__nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Entrada escalonada dos itens */
+.menu__nav li {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 500ms var(--ease),
+    transform 500ms var(--ease);
+}
+
+.menu.is-open .menu__nav li {
+  opacity: 1;
+  transform: none;
+}
+
+.menu.is-open .menu__nav li:nth-child(2) { transition-delay: 40ms; }
+.menu.is-open .menu__nav li:nth-child(3) { transition-delay: 80ms; }
+.menu.is-open .menu__nav li:nth-child(4) { transition-delay: 120ms; }
+.menu.is-open .menu__nav li:nth-child(5) { transition-delay: 160ms; }
+.menu.is-open .menu__nav li:nth-child(6) { transition-delay: 200ms; }
+.menu.is-open .menu__nav li:nth-child(7) { transition-delay: 240ms; }
+.menu.is-open .menu__nav li:nth-child(8) { transition-delay: 280ms; }
+
+.menu__info {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+  font-size: var(--fs-small);
+  font-style: normal;
+  color: var(--color-text);
+}
+
+.menu__info address {
+  font-style: normal;
+}
+
+.menu__logo {
+  width: 150px;
+  color: var(--color-brown);
+}
+
+.menu__logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.menu__tagline {
+  margin-bottom: 1rem;
+  font-size: var(--fs-footer);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
