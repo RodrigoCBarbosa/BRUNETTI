@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import AjusteFonte from './AjusteFonte.jsx'
 import Logo from './Logo.jsx'
 import './Header.css'
 
@@ -18,18 +19,21 @@ export default function Header({ menuOpen, onToggleMenu, onAgendar }) {
 
   return (
     <header className={classes}>
-      <button
-        type="button"
-        className="header__menu-button"
-        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-        aria-expanded={menuOpen}
-        aria-controls="menu"
-        onClick={onToggleMenu}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+      <div className="header__left">
+        <button
+          type="button"
+          className="header__menu-button"
+          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuOpen}
+          aria-controls="menu"
+          onClick={onToggleMenu}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <AjusteFonte />
+      </div>
 
       <a href="#inicio" className="header__logo" aria-label="Brunetti Odontologia — início">
         <Logo versao="horizontal" />
