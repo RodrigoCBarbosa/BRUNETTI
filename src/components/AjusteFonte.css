@@ -1,0 +1,110 @@
+/* Ajuste do tamanho do texto. Medidas em px de propósito:
+   o próprio controle não muda de tamanho enquanto é usado. */
+.ajuste {
+  position: relative;
+}
+
+.ajuste__toggle {
+  display: flex;
+  align-items: baseline;
+  padding: 0.15rem 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.ajuste__toggle small {
+  font-size: 11px;
+}
+
+.ajuste__toggle:hover,
+.ajuste.is-open .ajuste__toggle {
+  border-bottom-color: currentColor;
+}
+
+.ajuste__painel {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -12px;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: 200px;
+  padding: 18px 16px 14px;
+  background-color: var(--color-beige-light);
+  border: 1px solid rgba(105, 86, 67, 0.2);
+  box-shadow: 0 12px 30px rgba(30, 20, 13, 0.12);
+  color: var(--color-brown);
+}
+
+.ajuste__titulo {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.ajuste__controles {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ajuste__controles button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--color-brown);
+  background: transparent;
+  color: var(--color-brown);
+  cursor: pointer;
+  transition:
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.ajuste__controles button:hover:not(:disabled) {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+
+.ajuste__controles output {
+  min-width: 44px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.96px;
+  color: var(--color-text);
+}
+
+.ajuste__redefinir {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 11px;
+  letter-spacing: 0.96px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-brown);
+  cursor: pointer;
+}
+
+.ajuste button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.ajuste__redefinir:disabled {
+  text-decoration: none;
+}
+
+.ajuste__painel[hidden] {
+  display: none;
+}

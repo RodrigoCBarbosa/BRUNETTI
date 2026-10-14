@@ -5,7 +5,6 @@ export const secoes = [
   { href: '#experiencia', label: 'Experiência' },
   { href: '#atelie', label: 'Ateliê Digital' },
   { href: '#tratamentos', label: 'Todos os Tratamentos' },
-  { href: '#estrutura', label: 'Estrutura' },
   { href: '#corpo-clinico', label: 'Corpo Clínico' },
   { href: '#visite', label: 'Visite-nos' },
 ]

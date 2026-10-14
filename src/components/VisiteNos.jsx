@@ -44,8 +44,7 @@ export default function VisiteNos() {
           </a>
         </div>
 
-        {/* O pin padrão do Google Maps é vermelho: o filtro em VisiteNos.css
-            deixa o mapa em tons neutros (regra "sem vermelho"). */}
+        {/* Mapa nas cores padrão do Google: única exceção à regra "sem vermelho" */}
         <div className="visite__mapa reveal">
           <iframe
             title="Mapa da Brunetti Odontologia"

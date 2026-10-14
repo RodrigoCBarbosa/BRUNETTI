@@ -44,9 +44,16 @@
   }
 }
 
+/* Lado esquerdo: hambúrguer + ajuste de texto */
+.header__left {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 /* Hambúrguer: 3 linhas finas */
 .header__menu-button {
-  justify-self: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -113,7 +120,7 @@
   }
 }
 
-/* CTA discreto à direita */
+/* CTA discreto à direita (px: o header não escala com o ajuste de texto) */
 .header__cta {
   justify-self: end;
   padding: 0.25rem 0;
@@ -134,6 +141,6 @@
 
 @media (min-width: 1025px) {
   .header__cta {
-    font-size: var(--fs-menu);
+    font-size: 13px;
   }
 }

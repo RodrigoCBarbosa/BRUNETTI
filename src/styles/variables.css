@@ -2,7 +2,8 @@
  * Design tokens — Clínica Brunetti
  * Fonte: ANALISE_PADRONIZACAO.md (seção 6)
  *
- * REGRA ABSOLUTA: nenhum vermelho no site (nem em erros, ícones ou mapas).
+ * REGRA ABSOLUTA: nenhum vermelho no site (nem em erros ou ícones).
+ * Exceção: o mapa do Google em Visite-nos fica nas cores padrão.
  */
 :root {
   /* Cores — extraídas do Fasano e confirmadas na clínica física */
@@ -19,17 +20,19 @@
   /* Estados de formulário — VERMELHO PROIBIDO, inclusive em erros */
   --color-error: var(--color-brown);
 
-  /* Tipografia */
+  /* Tipografia — em rem para acompanhar o ajuste de tamanho do texto
+     (AjusteFonte) e a preferência de fonte do navegador. 1rem = 16px. */
   --font-extended: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  --fs-display: clamp(26px, 3.2vw, 40px);
-  --fs-title: 20px;
-  --fs-card-title: 14px;
-  --fs-menu: 13px;
-  --fs-button: 13px;
-  --fs-body: 14px;
-  --fs-small: 12px;
-  --fs-footer: 10px;
+  --fs-display: clamp(1.625rem, 1rem + 1.6vw, 2.5rem);
+  --fs-title: 1.25rem;       /* 20px */
+  --fs-card-title: 0.875rem; /* 14px */
+  --fs-menu: 0.8125rem;      /* 13px */
+  --fs-button: 0.8125rem;    /* 13px */
+  --fs-body: 0.875rem;       /* 14px */
+  --fs-compact: 0.8125rem;   /* 13px — listas e textos de apoio */
+  --fs-small: 0.75rem;       /* 12px */
+  --fs-footer: 0.625rem;     /* 10px */
   --ls-title: 0.8px;
   --ls-small: 0.96px;
   --ls-wide: 0.3em;
@@ -40,7 +43,7 @@
   --gap: 1rem;
   --section-py: 2rem;
   --header-stuck-height: 55px;
-  --booking-bar-height: 60px;
+  --booking-bar-height: 3.75rem; /* 60px — cresce com o texto */
 
   /* Movimento */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -53,6 +56,6 @@
     --gutter: 72px;
     --gap: 1.5rem;
     --section-py: 50px;
-    --booking-bar-height: 70px;
+    --booking-bar-height: 4.375rem; /* 70px */
   }
 }

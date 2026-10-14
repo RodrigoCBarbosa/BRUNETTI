@@ -29,7 +29,7 @@
 }
 
 .todos__texto {
-  font-size: 13px;
+  font-size: var(--fs-compact);
   color: var(--color-text);
 }
 
@@ -42,7 +42,7 @@
 .todos__categoria li {
   position: relative;
   padding-left: 1rem;
-  font-size: 13px;
+  font-size: var(--fs-compact);
   color: var(--color-brown);
 }
 

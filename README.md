@@ -1,16 +1,29 @@
-# React + Vite
+# Brunetti Odontologia — site institucional
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Página única em React + Vite, inspirada na linguagem visual do Fasano.
+Decisões de design e pendências da clínica estão em `ANALISE_PADRONIZACAO.md`.
 
-Currently, two official plugins are available:
+## Comandos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev      # servidor de desenvolvimento
+npm run build    # gera a versão final em dist/
+npm run lint     # oxlint
+```
 
-## React Compiler
+## Estrutura
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/components/` — uma seção da página por componente (JSX + CSS)
+- `src/data/` — conteúdo editável: dados da clínica, tratamentos e menu
+- `src/styles/variables.css` — cores, tipografia e espaçamentos (design tokens)
+- `src/hooks/` — aparição ao rolar (`useReveal`) e tamanho do texto (`useTamanhoFonte`)
 
-## Expanding the Oxlint configuration
+## Regras do projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **Nenhum vermelho no site**, nem em mensagens de erro ou ícones. Exceção: o mapa do Google
+  em Visite-nos fica nas cores padrão.
+- Tamanhos de fonte em `rem`: o botão "Aa" do header aumenta o texto de 100% a 150%
+  (a escolha fica salva no navegador). Header e o próprio controle usam `px` para não mudar de tamanho.
+- Itens marcados como **PROVISÓRIO** em `src/data/` (telefone, WhatsApp, CRO, corpo clínico,
+  textos) aguardam confirmação da clínica.
