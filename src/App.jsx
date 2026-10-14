@@ -2,7 +2,6 @@ import { useCallback, useState } from 'react'
 import Atelie from './components/Atelie.jsx'
 import BarraAgendamento from './components/BarraAgendamento.jsx'
 import CorpoClinico from './components/CorpoClinico.jsx'
-import Estrutura from './components/Estrutura.jsx'
 import Experiencia from './components/Experiencia.jsx'
 import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
@@ -47,7 +46,6 @@ function App() {
         <Experiencia />
         <Atelie />
         <TodosTratamentos onAgendar={agendar} />
-        <Estrutura />
         <CorpoClinico />
         <VisiteNos />
       </main>

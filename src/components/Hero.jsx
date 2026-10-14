@@ -20,10 +20,13 @@ const INTERVALO = 6500
 export default function Hero() {
   const [ativo, setAtivo] = useState(0)
 
+  // Avança sozinho, exceto para quem prefere menos movimento.
+  // Depende de `ativo`: ao clicar num ponto, o tempo recomeça do zero.
   useEffect(() => {
-    const timer = setInterval(() => setAtivo((i) => (i + 1) % slides.length), INTERVALO)
-    return () => clearInterval(timer)
-  }, [])
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const timer = setTimeout(() => setAtivo((i) => (i + 1) % slides.length), INTERVALO)
+    return () => clearTimeout(timer)
+  }, [ativo])
 
   return (
     <section id="inicio" className="hero" aria-label="Apresentação">
@@ -45,14 +48,13 @@ export default function Hero() {
 
       <div className="hero__footer">
         <Logo versao="simbolo" className="hero__symbol" />
-        <div className="hero__dots" role="tablist" aria-label="Imagens">
+        <div className="hero__dots" role="group" aria-label="Imagens">
           {slides.map((slide, i) => (
             <button
               key={slide.src}
               type="button"
-              role="tab"
-              aria-selected={i === ativo}
-              aria-label={`Imagem ${i + 1}`}
+              aria-pressed={i === ativo}
+              aria-label={`Mostrar imagem ${i + 1}`}
               className={i === ativo ? 'is-active' : ''}
               onClick={() => setAtivo(i)}
             />
